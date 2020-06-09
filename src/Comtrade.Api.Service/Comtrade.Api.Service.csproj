@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Site.Api.Core\Comtrade.Api.Core.csproj" />
+    <ProjectReference Include="..\Comtrade.Api.Core\Comtrade.Api.Core.csproj" />
   </ItemGroup>
 
 </Project>
