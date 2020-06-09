@@ -2,7 +2,7 @@ using System;
 using Comtrade.Api.Core.Constants;
 using Comtrade.Api.Core.DTO;
 using Comtrade.Api.Core.Interfaces;
-using Comtrade.Api.Service;
+using Comtrade.Api.Service.DataServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -62,14 +62,16 @@ namespace Comtrade.Api
         }
         private void AddHTTPClient(IServiceCollection services)
         {
+            string basePath = Configuration.GetSection("ComtradeAppSettings").Get<ComtradeAppSettings>().BasePath;
+
             services.AddHttpClient(AppSettingConstants.ComtradeClientName, client =>
             {
-                client.BaseAddress = new Uri(Configuration.GetSection("ComtradeBasePath").Value);
+                client.BaseAddress = new Uri(basePath);
             });
         }
         private void AddAppSettings(IServiceCollection services)
         {
-            services.Configure<AppSettings>(Configuration.GetSection("ApplicationSettings"));
+            services.Configure<ComtradeAppSettings>(Configuration.GetSection("ComtradeAppSettings"));
         }
         #endregion
 

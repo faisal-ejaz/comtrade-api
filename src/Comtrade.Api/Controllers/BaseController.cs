@@ -70,9 +70,10 @@ namespace Comtrade.Api.Controllers
         /// Logs the exception in execution
         /// </summary>
         /// <param name="exception">Exception object</param>
-        protected void LogException(Exception exception)
+        /// <param name="message">Message for the exception</param>
+        protected void LogException(Exception exception,string message = null)
         {
-            _logger.LogError(exception, "Exception Occurred");
+            _logger.LogError(exception, message);
         }
         #endregion
     }

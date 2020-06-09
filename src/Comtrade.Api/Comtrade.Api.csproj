@@ -9,8 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Site.Api.Core\Comtrade.Api.Core.csproj" />
-    <ProjectReference Include="..\Site.Api.Service\Comtrade.Api.Service.csproj" />
+    <ProjectReference Include="..\Comtrade.Api.Core\Comtrade.Api.Core.csproj" />
+    <ProjectReference Include="..\Comtrade.Api.Service\Comtrade.Api.Service.csproj" />
   </ItemGroup>
 
 
