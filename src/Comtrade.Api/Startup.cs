@@ -31,7 +31,11 @@ namespace Comtrade.Api
 
             AddDependancies(services);
 
-            services.AddControllers();
+            services.AddControllers().AddJsonOptions(options =>
+            {
+                // Use the default property (Pascal) casing.
+                options.JsonSerializerOptions.PropertyNamingPolicy = null;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,6 +44,8 @@ namespace Comtrade.Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                //Only allow any origin for development environment
+                app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             }
 
             app.UseRouting();
@@ -52,6 +58,7 @@ namespace Comtrade.Api
                 name: "default",
                 pattern: "{controller}/{action}");
             });
+          
         }
         #endregion
 
